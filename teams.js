@@ -95,8 +95,7 @@ function list_spaces(){
     <html> 
   
     <head>
-        <link rel="stylesheet" href="teams.css">
-        <script src="folder.js"></script>
+        <link rel="stylesheet" href="body.css">
     </head>
     
     <body>
@@ -105,8 +104,8 @@ function list_spaces(){
     
     for (let i = 0; i < space_ids.length; i++) {
     
-        var ss = `<option 
-                    value="${space_ids[i]}">${space_names[i]}
+        var ss = `<option value="${space_ids[i]}">
+                        ${space_names[i]}
                   </option>`
         html_code += ss;
     }
@@ -120,7 +119,10 @@ function list_spaces(){
     <br><br>
     <button id="space-continue">Continue</button>
 
+
+    <script src="folder.js"></script>
     <body>
+    
     </html>`
     
     document.open();
@@ -154,45 +156,6 @@ async function fnAsync() {
 }
   
   fnAsync();
-
-
-// async function getSpace(){
-
-   
-//     let result_space = await makeRequest_space("GET", space_url);
-//     console.log("getSpace result => ");
-//     console.log(result_space);
-   
-
-//     // code below here will only execute when await makeRequest() finished loading
-    
-// }
-
-
-
-
-// async function getTeam(callback){
-
-
-//     let result = await makeRequest_teams("GET", url)
-//     .then(()=>{space_url = "https://api.clickup.com/api/v2/team/"+ String(team_id) +"/space";})
-//     .then(() => {getSpace()})
-//     .catch(e => {
-//         console.log(e)
-//     });
-
-//     // let html_result = await list_spaces()
-
-//     console.log("getTeam result => ")
-//     console.log(result)
-
-//     callback();
-    
-// }
-
-
-
-// getTeam(list_spaces);
 
 
 

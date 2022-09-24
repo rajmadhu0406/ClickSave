@@ -1,30 +1,31 @@
 // const token = "61239203_b4507ca9af160d526f4c7aceb5f129be5441aa23"
 var e;
-var space_id;
-var space_name;
-var folder_url;
-var folders;
-var folder_ids = [];
-var folder_names = [];
+var folder_id;
+var folder_name;
+var list_url;
+var lists;
+var list_ids = [];
+var list_names = [];
 
-function getSpaceId()
+function getFolderId()
 {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside getSpaceId()\n");
+        console.log("Inside getFolderId()\n");
 
-        e = document.getElementById("space_select");
-        space_id = e.value;
-        space_name = e.options[e.selectedIndex].text;
+        e = document.getElementById("folder_select");
+        folder_id = e.value;
+        folder_name = e.options[e.selectedIndex].text;
 
-        folder_url = `https://api.clickup.com/api/v2/space/${space_id}/folder`;
+        list_url = `https://api.clickup.com/api/v2/folder/${folder_id}/list`;
+        // https://api.clickup.com/api/v2/folder/121291305/list
 
-        makeRequest_folder("GET",folder_url)
+        makeRequest_list("GET",list_url)
         .catch(e => {
             console.log(e)
         });
 
-         ListHtml()
+        ListHtml_list()
         .catch(e => {
             console.log(e)
         });
@@ -34,10 +35,10 @@ function getSpaceId()
 }
 
 
-function makeRequest_folder(method, url) {
+function makeRequest_list(method, url) {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside makerequest_folder()\n");
+        console.log("Inside makeRequest_list()\n");
 
 
         let xhr = new XMLHttpRequest();
@@ -49,7 +50,7 @@ function makeRequest_folder(method, url) {
 
                 
                 console.log(xhr.response);
-                folders = JSON.parse(xhr.responseText);
+                lists = JSON.parse(xhr.responseText);
 
 
             } else {
@@ -70,16 +71,19 @@ function makeRequest_folder(method, url) {
 }
 
 
-function ListHtml()
+//
+
+
+function ListHtml_list()
 {
     return new Promise(function (resolve, reject) {
 
-        console.log("inside ListHTML()\n");
+        console.log("inside ListHtml_list()\n");
 
-        for(var f in folders['folders'])
+        for(var l in lists["lists"])
         {
-            folder_ids.push(folders["folders"][f]['id']);
-            folder_names.push(folders["folders"][f]['name']);
+            list_ids.push(lists["lists"][l]['id']);
+            list_names.push(lists["lists"][l]['name']);
         }
         
         var html_code = ` 
@@ -91,12 +95,12 @@ function ListHtml()
         
         <body>
         
-        <select id="folder_select">`
+        <select id="list_select">`
         
-        for (let i = 0; i < folder_ids.length; i++) {
+        for (let i = 0; i < list_ids.length; i++) {
         
-            var ff = `<option value="${folder_ids[i]}">
-                          ${folder_names[i]}
+            var ff = `<option value="${list_ids[i]}">
+                          ${list_names[i]}
                       </option>`
             html_code += ff;
         }
@@ -105,10 +109,10 @@ function ListHtml()
         html_code += `</select>
     
         <br><br>
-        <button id="folder-continue">Continue</button>
+        <button id="list-continue">Continue</button>
     
         
-        <script src="list.js"></script>
+        <script src="task.js"></script>
         <body>
         
         </html>`
@@ -124,9 +128,9 @@ function ListHtml()
     });
 }
 
-async function fnAsync2()
+async function fnAsync3()
 {
-    await getSpaceId()
+    await getFolderId()
         .catch(e => {
             console.log(e)
         });
@@ -136,9 +140,9 @@ async function fnAsync2()
 }
 
 
-const space_continue = document.querySelector('#space-continue');
-space_continue.onclick = () => {
+const folder_continue = document.querySelector('#folder-continue');
+folder_continue.onclick = () => {
 
-    fnAsync2();
+    fnAsync3();
     
 }
