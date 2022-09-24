@@ -7,6 +7,9 @@
         "default_popup": "index.html",
         "default_icon": "link.png"
     },
+    "host_permissions": [
+        "https://api.clickup.com/api/v2/*"
+    ],
     "permissions": [
         "tabs",
         "webRequest" ,
