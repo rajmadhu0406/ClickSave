@@ -106,11 +106,22 @@ function ListHtml_list()
         }
     
         
-        html_code += `</select>
+        html_code += `
+        
+        <option value="new_list"> Create new list </option>
+
+        </select>
     
         <br><br>
-        <button id="list-continue">Continue</button>
+        <button id="list-continue">Add task</button>
     
+        <br><br>
+        <form id="new_list_form">
+            <label for="list_name">List Name:</label><br>
+            <input type="text" id="list_name" name="list_name"><br>
+            <button id="new_list_button" type="submit">Create New List & add task</button>
+        </form>
+
         
         <script src="task.js"></script>
         <body>

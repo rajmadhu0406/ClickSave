@@ -24,7 +24,7 @@ function getSpaceId()
             console.log(e)
         });
 
-         ListHtml()
+        ListHtml()
         .catch(e => {
             console.log(e)
         });
@@ -130,8 +130,6 @@ async function fnAsync2()
         .catch(e => {
             console.log(e)
         });
-
-
     
 }
 
