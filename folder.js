@@ -106,7 +106,12 @@ function ListHtml()
     
         <br><br>
         <button id="folder-continue">Continue</button>
-    
+
+        <br><br>
+       
+            <label for="list_name">List Name:</label><br>
+            <input type="text" id="list_name" name="list_name"><br>
+            <button id="new_list_button">Create New List & add task</button>
         
         <script src="list.js"></script>
         <body>
