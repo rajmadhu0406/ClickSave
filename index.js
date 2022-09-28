@@ -15,9 +15,13 @@ signin_button.onclick = () => {
 const pop_button = document.querySelector('#pop-button');
 pop_button.onclick = () => {
 
-    chrome.storage.local.set({'phasersTo': 'valuexxxx'}, function() {
+    chrome.storage.sync.set({'k1': 'valuexxxx'}, function() {
         alert('Value is set to ');
     });
+
+    chrome.storage.local.set({"k1": "value1"}, function() {
+        console.log('Value is set!!!' );
+      });
     
 }
 
@@ -29,7 +33,37 @@ async function getCurrentTab() {
     return tab;
 }
 
+const get_button = document.querySelector('#get-button');
+get_button.onclick = () => {
+
+    return new Promise((resolve, reject) => {
+console.log("onclick\n");
+
+chrome.storage.sync.get(['k1'], function(result) {
+        alert('Value get is : ' + result.key);
+      });
+
+    });
+}
+
+const set_button = document.querySelector('#set-button');
+set_button.onclick = () => {
+    return new Promise((resolve, reject) => {
 
 
+    chrome.storage.sync.set({"k2": "value2"}, function() {
+        alert('Value is set!!!' );
+    });
 
+});
+
+}
+  
+chrome.storage.sync.set({"k1": "value1"}, function() {
+    console.log('Value is set!!!' );
+  });
+
+  chrome.storage.sync.get(['k1'], function(result) {
+    alert('Value get is : ' + result.key);
+  });
 
