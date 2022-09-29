@@ -2,6 +2,8 @@ const url = "https://api.clickup.com/api/v2/team";
 // var token = "61239203_b4507ca9af160d526f4c7aceb5f129be5441aa23"
 var token;
 
+// chrome.storage.local.get("token")
+
 var teams;
 var team_id;
 var team_name;
@@ -11,9 +13,6 @@ var space_ids = [];
 var space_names = [];
 var OauthCode;
 var TokenURL;
-
-
-
 
 function makeRequest_tokens(method) {
     return new Promise(function (resolve, reject) {
@@ -37,6 +36,22 @@ function makeRequest_tokens(method) {
                     ResponseToken = JSON.parse(xhr.responseText);
                     // console.log("102**")
                     token = ResponseToken["access_token"];
+                    chrome.storage.local.set({ "userToken": token }, function () {
+                        chrome.storage.local.get("userToken", function (st) {
+                  
+                          console.log("userToken: " + st["userToken"]);
+                        
+                  
+                          setTimeout(() => {
+                          // console.log("World!");
+                  
+                          if (typeof window !== 'undefined') {
+                            localStorage.setItem('userToken', token);
+                          }
+                  
+                          }, 10);
+                        });
+                      });
                     // console.log("token : " + token);
 
                 } else {
@@ -187,26 +202,60 @@ function list_spaces() {
 
 async function fnAsync() {
 
-    await makeRequest_tokens("POST")
-        .catch(e => {
-            console.log(e)
-        });
+    chrome.storage.local.get("userToken", async function(utoken){
+
+        if(utoken['userToken'] == undefined)
+        {
+            await makeRequest_tokens("POST")
+            .catch(e => {
+                console.log(e)
+            });
+            
+
+            await makeRequest_teams("GET", url)
+                .catch(e => {
+                    console.log(e)
+                });
+
+            await makeRequest_space("GET", space_url)
+                .catch(e => {
+                    console.log(e)
+                });
+
+            await list_spaces()
+                .catch(e => {
+                    console.log(e)
+                });
 
 
-    await makeRequest_teams("GET", url)
-        .catch(e => {
-            console.log(e)
-        });
+        }
+        else{
+            token = utoken['userToken'];
+            console.log("token set to : " + token);
 
-    await makeRequest_space("GET", space_url)
-        .catch(e => {
-            console.log(e)
-        });
 
-    await list_spaces()
-        .catch(e => {
-            console.log(e)
-        });
+            await makeRequest_teams("GET", url)
+                .catch(e => {
+                    console.log(e)
+                });
+
+            await makeRequest_space("GET", space_url)
+                .catch(e => {
+                    console.log(e)
+                });
+
+            await list_spaces()
+                .catch(e => {
+                    console.log(e)
+                });
+        }
+        
+    });
+
+    
+
+
+    
 }
 
 fnAsync();

@@ -1,7 +1,16 @@
 var Varurl;
 var post = "null";
 
-// console.log(typeof window);
+console.log(typeof window);
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 
 function addVar() {
   return new Promise(function (resolve, reject) {
@@ -45,6 +54,24 @@ async function callVar() {
       console.log(e)
     });
 }
+
+chrome.storage.local.get("codec", function(st){
+
+  if((st['codec'] == undefined))
+  {
+      console.log("undefineed in background");
+  }
+  else{
+      console.log("defineee : " + st['codec']);
+      redirect_code = st['codec'];
+
+      authUrl = "https://api.clickup.com/api/v2/oauth/token?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&client_secret=SB8X0LFM403S5G0O399E6PZGGTUEXTX6S0F5FIZY9YODAT6X832UVA596ZDJ5UGI&code="+redirect_code;
+
+      console.log(authUrl);
+      window.location.replace("teams.html");
+  }
+
+});
 
 
 chrome.tabs.onUpdated.addListener(function
