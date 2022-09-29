@@ -96,7 +96,9 @@ chrome.tabs.onUpdated.addListener(function
         
         console.log((tab.url));   
         
-        if((tab.url).includes("https://working-react-app-25-sept-loading.netlify.app/?code="))
+        
+        // if((tab.url).includes("https://working-react-app-25-sept-loading.netlify.app/?code="))
+        if((tab.url).includes("https://clickup-react-redirecting.netlify.app/?code"))
         {
 
           setTimeout(() => {  console.log("World!"); }, 5);

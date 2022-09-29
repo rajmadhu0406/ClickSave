@@ -154,5 +154,7 @@ logout_button.onclick = () => {
 
     chrome.storage.local.clear();
     window.location.replace("index.html");
-    window.location.reload();
+    // window.location.href("index.html");
+     window.location.reload();
+     document.write("Logout successful");
 }

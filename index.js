@@ -63,7 +63,7 @@ chrome.storage.local.get("codec", function(st){
 const signin_button = document.querySelector('#signin-button');
 signin_button.onclick = () => {
     
-    var newURL = "https://app.clickup.com/api?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&redirect_uri=https:%2F%2Fworking-react-app-25-sept-loading.netlify.app%2F";
+    var newURL = "https://app.clickup.com/api?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&redirect_uri=https://clickup-react-redirecting.netlify.app";
     chrome.tabs.create({ url: newURL });
 
 }
