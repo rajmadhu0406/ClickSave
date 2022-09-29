@@ -145,3 +145,14 @@ space_continue.onclick = () => {
     fnAsync2();
     
 }
+
+
+
+//logout button
+const logout_button = document.querySelector('#logout-button');
+logout_button.onclick = () => {
+
+    chrome.storage.local.clear();
+    window.location.replace("index.html");
+    window.location.reload();
+}

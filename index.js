@@ -1,69 +1,118 @@
+// /sign in button click and open new url
+// var background = chrome.extension.getBackgroundPage();
+// background.transfer;
+var redirect_code;
+var client_id = "KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F";
+var client_secret = "SB8X0LFM403S5G0O399E6PZGGTUEXTX6S0F5FIZY9YODAT6X832UVA596ZDJ5UGI";
+var authUrl;
+var ResponseToken;
+var tokenIndex;
+
+
+// function getToken(url)
+// {
+//         xhr.open("POST", url);
+//         xhr.onload = function () {
+//             if (this.status >= 200 && this.status < 300) {
+//                 resolve(xhr.response);
+
+//                 console.log("onload response** : ");
+//                 console.log(xhr.response);
+//                 ResponseToken = JSON.parse(xhr.responseText);
+//                 console.log("102**")
+//                 tokenIndex = teams["access_token"][0];
+//                 console.log("tokenIndex : "+tokenIndex);
+
+//             } else {
+//                 reject({
+//                     status: this.status,
+//                     statusText: xhr.statusText
+//                 });
+//             }
+//         };
+//         xhr.onerror = function () {
+//             reject({
+//                 status: this.status,
+//                 statusText: xhr.statusText
+//             });
+//         };
+//         xhr.send();
+// }
+
+
+
+chrome.storage.local.get("codec", function(st){
+
+    if((st['codec'] == undefined))
+    {
+        console.log("undefineee");
+    }
+    else{
+        console.log("defineee : " + st['codec']);
+        redirect_code = st['codec'];
+
+        authUrl = "https://api.clickup.com/api/v2/oauth/token?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&client_secret=SB8X0LFM403S5G0O399E6PZGGTUEXTX6S0F5FIZY9YODAT6X832UVA596ZDJ5UGI&code="+redirect_code;
+        // getToken(authUrl);
+
+        console.log(authUrl);
+        window.location.replace("teams.html");
+    }
+
+});
+
 const signin_button = document.querySelector('#signin-button');
 signin_button.onclick = () => {
-
-    // chrome.storage.local.set({'phasersTo': 'valuexxxx'}, function() {
-    //     alert('Value is set to ' + value);
-    // });
-      
     
-    var newURL = "https://app.clickup.com/api?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&redirect_uri=clickup-react-cli-working.netlify.app";
+    var newURL = "https://app.clickup.com/api?client_id=KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F&redirect_uri=https:%2F%2Fworking-react-app-25-sept-loading.netlify.app%2F";
     chrome.tabs.create({ url: newURL });
 
 }
 
-
-const pop_button = document.querySelector('#pop-button');
-pop_button.onclick = () => {
-
-    chrome.storage.sync.set({'k1': 'valuexxxx'}, function() {
-        alert('Value is set to ');
+    var urlx;
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        urlx = tabs[0].url;
     });
 
-    chrome.storage.local.set({"k1": "value1"}, function() {
-        console.log('Value is set!!!' );
-      });
+
+    console.log("out : " + String(urlx));
+ 
+    // if(localStorage.getItem('code') == null)
+    // {
+        
+    //     console.log("if : " + urlx)
+
+    //     var splitUrl=  String(urlx).split("=")[1];
+    //     console.log(splitUrl);
+    //     localStorage.setItem('code',splitUrl);
+        
+    // // let searchParams=new URLSearchParams(url);
+    // }
+      
+
+    // else{
+
+    //     console.log("else : " + urlx)
+    //     console.log(localStorage.getItem('code'));
+        
+    // }
+
+
+
+
+        
+        
+
+// const pop_button = document.querySelector('#pop-button');
+// pop_button.onclick = () => {
+
+//     chrome.storage.local.set({'phasersTo': 'valuexxxx'}, function() {
+//         alert('Value is set to ');
+//     });
+// }
+
+// const redirect_button = document.querySelector('#redirect');
+// redirect_button.onclick = () => {
     
-}
+//     window.location.href("teams.html");
 
-
-async function getCurrentTab() {
-    let queryOptions = { active: true, lastFocusedWindow: true };
-    // `tab` will either be a `tabs.Tab` instance or `undefined`.
-    let [tab] = await chrome.tabs.query(queryOptions);
-    return tab;
-}
-
-const get_button = document.querySelector('#get-button');
-get_button.onclick = () => {
-
-    return new Promise((resolve, reject) => {
-console.log("onclick\n");
-
-chrome.storage.sync.get(['k1'], function(result) {
-        alert('Value get is : ' + result.key);
-      });
-
-    });
-}
-
-const set_button = document.querySelector('#set-button');
-set_button.onclick = () => {
-    return new Promise((resolve, reject) => {
-
-
-    chrome.storage.sync.set({"k2": "value2"}, function() {
-        alert('Value is set!!!' );
-    });
-
-});
-
-}
-  
-chrome.storage.sync.set({"k1": "value1"}, function() {
-    console.log('Value is set!!!' );
-  });
-
-  chrome.storage.sync.get(['k1'], function(result) {
-    alert('Value get is : ' + result.key);
-  });
-
+// }
