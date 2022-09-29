@@ -40,13 +40,11 @@ var new_list_name;
 function getListId() {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside getListId()\n");
+        // console.log("Inside getListId()\n");
 
         e = document.getElementById("list_select");
         list_id = e.value;
         list_name = e.options[e.selectedIndex].text;
-
-
 
         task_url = `https://api.clickup.com/api/v2/list/${list_id}/task`; //create task
 
@@ -67,7 +65,7 @@ function getListId() {
 function makeRequest_task(method, url) {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside makeRequest_task()\n");
+        // console.log("Inside makeRequest_task()\n");
 
         params["name"] = link_to_add; //adding the url in the body of the API request
 
@@ -81,7 +79,7 @@ function makeRequest_task(method, url) {
                 resolve(xhr.response);
 
 
-                console.log(xhr.response);
+                // console.log(xhr.response);
                 task_result = JSON.parse(xhr.responseText);
 
 
@@ -105,9 +103,7 @@ function makeRequest_task(method, url) {
 function DisplayDone() {
     return new Promise(function (resolve, reject) {
 
-        console.log("inside DisplayDone()\n");
-
-
+        // console.log("inside DisplayDone()\n");
 
         var html_code = ` 
         <html> 
@@ -149,8 +145,6 @@ add_task.onclick = () => {
     fnAsync4();
 
 }
-
-//
 
 function makeRequest_task_after_list() {
     return new Promise(function (resolve, reject) {
@@ -246,9 +240,6 @@ function getListName() {
         e = document.getElementById("list_name");
         new_list_name = e.value;
 
-
-
-
         create_list_url = `https://api.clickup.com/api/v2/folder/${folder_id}/list`; //create list
         // task_url = `https://api.clickup.com/api/v2/list/${list_id}/task`; //create task
 
@@ -262,9 +253,6 @@ function getListName() {
             .catch(e => {
                 console.log(e)
             });
-
-
-
     });
 }
 
@@ -276,16 +264,9 @@ async function fnAsync5() {
         .catch(e => {
             console.log(e)
         });
-
-
-
-
 }
 
 const new_list_button = document.querySelector('#new_list_button');
 new_list_button.onclick = () => {
-
     fnAsync5();
-
-
 }

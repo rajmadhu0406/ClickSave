@@ -26,18 +26,18 @@ function makeRequest_tokens(method) {
             console.log("TokenURL : " + TokenURL);
 
             let xhr = new XMLHttpRequest();
-            console.log("opeming...");
+            // console.log("opeming...");
             xhr.open(method, TokenURL);
             xhr.onload = function () {
                 if (this.status >= 200 && this.status < 300) {
                     resolve(xhr.response);
 
-                    console.log("onload response** : ");
-                    console.log(xhr.response);
+                    // console.log("onload response** : ");
+                    // console.log(xhr.response);
                     ResponseToken = JSON.parse(xhr.responseText);
-                    console.log("102**")
+                    // console.log("102**")
                     token = ResponseToken["access_token"];
-                    console.log("token : " + token);
+                    // console.log("token : " + token);
 
                 } else {
                     reject({
@@ -70,10 +70,10 @@ function makeRequest_teams(method, url) {
             if (this.status >= 200 && this.status < 300) {
                 resolve(xhr.response);
 
-                console.log("onload response : ");
-                console.log(xhr.response);
+                // console.log("onload response : ");
+                // console.log(xhr.response);
                 teams = JSON.parse(xhr.responseText);
-                console.log("102")
+                // console.log("102")
                 team_id = teams["teams"][0]['id'];
                 team_name = teams['teams'][0]['name'];
 
@@ -108,7 +108,7 @@ function makeRequest_space(method, url) {
             if (this.status >= 200 && this.status < 300) {
                 resolve(xhr.response);
 
-                console.log(xhr.response);
+                // console.log(xhr.response);
                 spaces = JSON.parse(xhr.responseText);
 
 
@@ -134,7 +134,7 @@ function list_spaces() {
 
     return new Promise(function (resolve, reject) {
 
-        console.log("inside list_space()\n");
+        // console.log("inside list_space()\n");
 
         for (var s in spaces['spaces']) {
             space_ids.push(spaces['spaces'][s]['id']);
@@ -159,10 +159,6 @@ function list_spaces() {
                   </option>`
             html_code += ss;
         }
-
-        //   <option value="${}">test1</option>
-        //   <option value="2" selected="selected">test2</option>
-        //   <option value="3">test3</option>
 
         html_code += `</select>
 

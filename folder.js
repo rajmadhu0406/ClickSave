@@ -11,7 +11,7 @@ function getSpaceId()
 {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside getSpaceId()\n");
+        // console.log("Inside getSpaceId()\n");
 
         e = document.getElementById("space_select");
         space_id = e.value;
@@ -37,7 +37,7 @@ function getSpaceId()
 function makeRequest_folder(method, url) {
     return new Promise(function (resolve, reject) {
 
-        console.log("Inside makerequest_folder()\n");
+        // console.log("Inside makerequest_folder()\n");
 
 
         let xhr = new XMLHttpRequest();
@@ -46,12 +46,8 @@ function makeRequest_folder(method, url) {
         xhr.onload = function () {
             if (this.status >= 200 && this.status < 300) {
                 resolve(xhr.response);
-
-                
-                console.log(xhr.response);
+                // console.log(xhr.response);
                 folders = JSON.parse(xhr.responseText);
-
-
             } else {
                 reject({
                     status: this.status,
@@ -74,7 +70,7 @@ function ListHtml()
 {
     return new Promise(function (resolve, reject) {
 
-        console.log("inside ListHTML()\n");
+        // console.log("inside ListHTML()\n");
 
         for(var f in folders['folders'])
         {
@@ -138,15 +134,12 @@ async function fnAsync2()
     
 }
 
-
 const space_continue = document.querySelector('#space-continue');
 space_continue.onclick = () => {
 
     fnAsync2();
     
 }
-
-
 
 //logout button
 const logout_button = document.querySelector('#logout-button');
