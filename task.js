@@ -33,7 +33,15 @@ var new_list_params = {
     "status": "red"
 }
 
-var link_to_add = "https://www.google.com/";
+//getting the current tab url from chrome storage
+var link_to_add;
+chrome.storage.local.get("currentUrl", function (stt) {
+                  
+    console.log("currentUrl: " + stt["currentUrl"]);
+    link_to_add = stt['currentUrl'];
+
+  });
+
 var new_list_name;
 
 
