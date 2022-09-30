@@ -1,9 +1,70 @@
 body {
     margin: 0;
     padding: 10px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,roboto,Helvetica Neue,helvetica,arial,sans-serif;
+    /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,roboto,Helvetica Neue,helvetica,arial,sans-serif; */
+    font-family: 'Roboto', sans-serif;
+
+    /* font-family: Axiforma,Gotham Pro; */
+    font-size:25px;
     min-width: 300px;
     min-height: 200px;
     position: relative;
     font-weight: 650;
+    /* background-color: #7B68EE; */
+    background-image: linear-gradient(to bottom right, #00BFFF, #7B68EE);
+}
+
+select{
+
+    /*align the select button to center*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 8px;
+
+}
+
+button {
+    transition: background-color .2s cubic-bezier(.785,.135,.15,.86) 0s;
+    background-color: #49ccf9;
+    height: 30px;
+    /* font-family: Gotham Pro; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 651;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 9px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 25px #7b68ee80;
+    color: white;
+}
+
+button:hover{
+    background-color:  #49ccf9;
+    box-shadow: 0 10px 25px black;
+}
+
+#space-continue{
+    color:black
+}
+
+#logout-button{
+    margin-top: 5%;
+    color:black
+}
+
+#heading{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-size: 40px;
+    font-weight: 650;
+    color: white;
 }
