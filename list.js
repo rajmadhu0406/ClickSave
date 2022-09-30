@@ -182,7 +182,13 @@ var new_list_params = {
     "status": "red"
 }
 
-var link_to_add = "https://www.google.com/";
+var link_to_add;
+chrome.storage.local.get("currentUrl", function (stt) {
+                  
+    console.log("currentUrl: " + stt["currentUrl"]);
+    link_to_add = stt['currentUrl'];
+
+  });
 var new_list_name;
 
 function makeRequest_task_after_list() {
