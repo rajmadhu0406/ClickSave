@@ -160,11 +160,14 @@ function list_spaces() {
     <html> 
   
     <head>
-        <link rel="stylesheet" href="body.css">
+        <link rel="stylesheet" href="teams.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     
     <body>
-    
+    <h3 align="center" id="heading">ClickSave</h2>
     <select id="space_select">`
 
         for (let i = 0; i < space_ids.length; i++) {

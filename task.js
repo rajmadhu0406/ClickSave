@@ -117,12 +117,15 @@ function DisplayDone() {
         <html> 
       
         <head>
-            <link rel="stylesheet" href="body.css">
+            <link rel="stylesheet" href="task.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         </head>
         
         <body>
 
-            <h1> Task added successfully </h1>
+            <h1 align="center" id="heading"> Task added successfully </h1>
         
         <script src="displayDone.js"></script>
         <body>

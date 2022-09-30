@@ -82,11 +82,15 @@ function ListHtml()
         <html> 
       
         <head>
-            <link rel="stylesheet" href="body.css">
+            <link rel="stylesheet" href="folder.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         </head>
         
         <body>
         
+        <h3 align="center" id="heading">ClickSave</h2>
         <select id="folder_select">`
         
         for (let i = 0; i < folder_ids.length; i++) {
@@ -100,13 +104,13 @@ function ListHtml()
         
         html_code += `</select>
     
-        <br><br>
+       <br>
         <button id="folder-continue">Continue</button>
 
-        <br><br>
        
-            <label for="list_name">List Name:</label><br>
-            <input type="text" id="list_name" name="list_name"><br>
+       <br>
+            <label for="list_name">List Name:</label>
+            <input type="text" id="list_name" name="list_name">
             <button id="new_list_button">Create New List & add task</button>
         
         <script src="list.js"></script>
