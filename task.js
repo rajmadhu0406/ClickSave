@@ -125,7 +125,7 @@ function DisplayDone() {
         
         <body>
 
-            <h1 align="center" id="heading"> Task added successfully </h1>
+            <h3 align="center" id="heading"> Task added successfully </h1>
         
         <script src="displayDone.js"></script>
         <body>
