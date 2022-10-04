@@ -10,9 +10,12 @@ body {
     min-height: 200px;
     position: relative;
     font-weight: 650;
-    /* background-color: #7B68EE; */
-    background-image: linear-gradient(to bottom right, #00BFFF, #7B68EE);
+    background-color: #ffffff;
+    /* background-image: linear-gradient(to bottom right, #00BFFF, #7B68EE); */
+    
+    
 }
+
 
 select{
 
@@ -31,24 +34,23 @@ select{
 
 button {
     transition: background-color .2s cubic-bezier(.785,.135,.15,.86) 0s;
-    background-color: #49ccf9;
-    height: 30px;
-    /* font-family: Gotham Pro; */
+    background-color: #4494e4;
+    height: 50px;
     font-family: 'Roboto', sans-serif;
     font-weight: 651;
-    display: flex;
+    position: static;
     align-items: center;
     justify-content: center;
     border: 0;
     border-radius: 9px;
     width: 100%;
-    /* margin-bottom: 1px; */
+    margin-bottom: 10%;
     box-shadow: 0 10px 25px #7b68ee80;
     color: white;
 }
 
 button:hover{
-    background-color:  #49ccf9;
+    background-color:  #9140d3;
     box-shadow: 0 10px 25px black;
 }
 
