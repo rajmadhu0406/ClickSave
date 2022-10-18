@@ -10,10 +10,8 @@ body {
     min-height: 200px;
     position: relative;
     font-weight: 650;
-    background-color: #ffffff;
-    /* background-image: linear-gradient(to bottom right, #00BFFF, #7B68EE); */
-    
-    
+    /* background-color: #7B68EE; */
+    background-image: linear-gradient(to bottom right, #00BFFF, #7B68EE);
 }
 
 select{
@@ -30,25 +28,27 @@ select{
     margin-bottom: 8px;
 
 }
+
 button {
     transition: background-color .2s cubic-bezier(.785,.135,.15,.86) 0s;
-    background-color: #4494e4;
-    height: 50px;
+    background-color: #49ccf9;
+    height: 30px;
+    /* font-family: Gotham Pro; */
     font-family: 'Roboto', sans-serif;
     font-weight: 651;
-    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
     border: 0;
     border-radius: 9px;
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 10px;
     box-shadow: 0 10px 25px #7b68ee80;
     color: white;
 }
 
 button:hover{
-    background-color:  #9140d3;
+    background-color:  #49ccf9;
     box-shadow: 0 10px 25px black;
 }
 

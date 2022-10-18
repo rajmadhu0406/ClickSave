@@ -41,8 +41,8 @@ signin_button.onclick = () => {
     chrome.tabs.create({ url: newURL });
 }
 
-var urlx;
-chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    urlx = tabs[0].url;
-});
+// var urlx;
+// chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+//     urlx = tabs[0].url;
+// });
 

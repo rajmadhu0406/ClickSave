@@ -18,9 +18,9 @@ function addVar() {
     console.log("addVar() : " + Varurl);
 
     var splitUrl = (Varurl).split("=")[1];
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('code', splitUrl);
-    }
+    // if (typeof window !== 'undefined') {
+    //   localStorage.setItem('code', splitUrl);
+    // }
 
 
 

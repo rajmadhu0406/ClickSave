@@ -19,12 +19,14 @@ function getSpaceId()
 
         folder_url = `https://api.clickup.com/api/v2/space/${space_id}/folder`;
 
-        makeRequest_folder("GET",folder_url)
+        
+
+        ListHtml()
         .catch(e => {
             console.log(e)
         });
-
-        ListHtml()
+        
+        makeRequest_folder("GET",folder_url)
         .catch(e => {
             console.log(e)
         });

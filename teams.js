@@ -42,14 +42,15 @@ function makeRequest_tokens(method) {
                           console.log("userToken: " + st["userToken"]);
                         
                   
-                          setTimeout(() => {
-                          // console.log("World!");
+                        //   setTimeout(() => {
+                        //   // console.log("World!");
                   
-                          if (typeof window !== 'undefined') {
-                            localStorage.setItem('userToken', token);
-                          }
+                        // //   if (typeof window !== 'undefined') {
+                        // //     localStorage.setItem('userToken', token);
+                        // //   }
                   
-                          }, 10);
+                        //   }, 10);
+                        
                         });
                       });
                     // console.log("token : " + token);
@@ -233,6 +234,7 @@ async function fnAsync() {
 
         }
         else{
+            //debugging...
             token = utoken['userToken'];
             console.log("token set to : " + token);
 

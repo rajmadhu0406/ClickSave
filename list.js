@@ -90,10 +90,11 @@ function ListHtml_list()
         <html> 
       
         <head>
-            <link rel="stylesheet" href="body.css">
+            <link rel="stylesheet" href="task.css">
         </head>
         
         <body>
+        <br>
         
         <select id="list_select">`
         
@@ -110,13 +111,13 @@ function ListHtml_list()
 
         </select>
     
-        <br><br>
         <button id="list-continue">Add task</button>
     
         <br><br>
        
-            <label for="list_name">List Name:</label><br>
-            <input type="text" id="list_name" name="list_name"><br>
+            <label for="list_name">List Name:</label>
+            <input type="text" id="list_name" name="list_name" required>
+            <br>
             <button id="new_list_button">Create New List & add task</button>
         
 
