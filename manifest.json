@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "version": "1.1",
     "name": "ClickSave",
+    "description": "ClickSave is a browser extension that allows you to save any webpage to your ClickUp account.",
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyrkE+S4tQVahZeuHFO1Vylnm7oTCiK22lh7MKqKxE7EAlK12IKDtk7VLNWBGfY851kePMtNsQmCMa1yaKEnEqK+FP+ZArIane6ek/71ZT0lR1ZE7F3Q8KK/sBmlg4FiZTMAFBf1T+WgenpR1dbwJ/nPV7gDyo17dWbVrFHpweNJ+QfR9+3czMcfALr3XcBoY+N5fgn7Ok8OGsBwcLxEjfzCNOX8guOAN0p2W+9jlQVObg4yZ+R0tmdCusjQ/5UzYt+jvvCNKbOoyj+xVs0bQAkh2e4sQ3SHxm/1vuk5zKJQyHgNOLJ758zA+EVnLblsUkRWgA4nHOEFyVMNTPKYg4wIDAQAB",
     "action": {
         "default_popup": "index.html",
