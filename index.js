@@ -1,6 +1,6 @@
 var redirect_code;
-var client_id = "KAEZK7PJ5BC3EW7TFY5XO8FD7MDYHV5F";
-var client_secret = "SB8X0LFM403S5G0O399E6PZGGTUEXTX6S0F5FIZY9YODAT6X832UVA596ZDJ5UGI";
+var client_id = "";
+var client_secret = "";
 var authUrl;
 var ResponseToken;
 var tokenIndex;
